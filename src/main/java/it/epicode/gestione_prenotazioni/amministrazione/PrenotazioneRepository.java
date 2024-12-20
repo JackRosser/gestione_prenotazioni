@@ -12,4 +12,6 @@ public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long
 
     // TROVO TUTTE LE PRENOTAZIONI FATTE DA UN DIPENDENTE
     List<Prenotazione> findByDipendenteId(Long dipendenteId);
+
+    long countByDataPrenotazioneBetween(LocalDate inizio, LocalDate fine);
 }
