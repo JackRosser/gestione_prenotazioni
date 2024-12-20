@@ -15,8 +15,12 @@ public class PostazioneConfig {
         return () -> {
             Postazione postazione = new Postazione();
             postazione.setDescrizione(faker.lorem().sentence());
-            postazione.setTipoPostazione(TipoPostazione.values()[faker.random().nextInt(0, TipoPostazione.values().length)]);
-            postazione.setNumeroMassimoOccupanti(faker.random().nextInt(1, 10));
+
+            // Seleziona un valore casuale da TipoPostazione
+            TipoPostazione tipo = TipoPostazione.values()[faker.random().nextInt(TipoPostazione.values().length)];
+            postazione.setTipoPostazione(tipo);
+
+            postazione.setNumeroMassimoOccupanti(faker.random().nextInt(1, 10)); // Numero occupanti tra 1 e 10
             return postazione;
         };
     }

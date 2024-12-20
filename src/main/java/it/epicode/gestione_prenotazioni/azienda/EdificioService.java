@@ -30,4 +30,13 @@ public class EdificioService {
                 .orElseThrow(() -> new IllegalArgumentException("Edificio non trovato"))
                 .getPostazioni();
     }
+
+    public Edificio saveEdificio(Edificio edificio) {
+        return edificioRepository.save(edificio);
+    }
+
+    public Edificio findById(Long id) {
+        return edificioRepository.findById(id).orElse(null);
+    }
+
 }

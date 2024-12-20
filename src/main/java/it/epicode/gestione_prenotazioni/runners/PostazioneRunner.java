@@ -30,10 +30,16 @@ public class PostazioneRunner implements CommandLineRunner {
     public void run(String... args) {
         edificioRepository.findAll().forEach(edificio ->
                 IntStream.range(0, 10).forEach(i -> {
-                    Postazione postazione = postazioneSupplier.get();
-                    postazione.setEdificio(edificio); // ASSEGNA UN EDIFICIO A UNA POSTAZIONE
-                    postazioneRepository.save(postazione);
+                    try {
+                        Postazione postazione = postazioneSupplier.get();
+                        postazione.setEdificio(edificio); // Assegna l'edificio
+                        postazioneRepository.save(postazione);
+                    } catch (Exception e) {
+                        // Log dell'errore e continua
+                        System.err.println("Errore durante la creazione della postazione: " + e.getMessage());
+                    }
                 })
         );
     }
+
 }
