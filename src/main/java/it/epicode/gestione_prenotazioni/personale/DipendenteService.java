@@ -32,4 +32,9 @@ public class DipendenteService {
     public List<Prenotazione> trovaPrenotazioniDipendente(Long dipendenteId) {
         return prenotazioneRepository.findByDipendenteId(dipendenteId);
     }
+
+    public Dipendente saveDipendente(Dipendente dipendente) {
+        return dipendenteRepository.save(dipendente);
+    }
+
 }
