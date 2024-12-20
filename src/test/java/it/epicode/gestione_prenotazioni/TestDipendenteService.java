@@ -18,22 +18,20 @@ public class TestDipendenteService {
     @DisplayName("Test registrazione Dipendente dipendente")
     public void testRegistraDipendente() {
         Dipendente dipendente = new Dipendente();
-        dipendente.setUsername("gverdi");
-        dipendente.setNome("Giuseppe");
-        dipendente.setCognome("Verdi");
-        dipendente.setEmail("gverdi@gmail.com");
+        dipendente.setUsername("dipndt");
+        dipendente.setNome("Dip");
+        dipendente.setCognome("Endente");
+        dipendente.setEmail("endentedip@gmail.com");
 
-        // Registra il dipendente
         dipendenteService.saveDipendente(dipendente);
 
-        // Recupera il dipendente per verificare
-        Dipendente savedDipendente = dipendenteService.trovaPerUsername("gverdi");
+        Dipendente savedDipendente = dipendenteService.trovaPerUsername("dipndt");
 
         // Esegui le asserzioni
         assertNotNull(savedDipendente);
-        assertEquals("gverdi", savedDipendente.getUsername());
-        assertEquals("Giuseppe", savedDipendente.getNome());
-        assertEquals("Verdi", savedDipendente.getCognome());
-        assertEquals("gverdi@gmail.com", savedDipendente.getEmail());
+        assertEquals("dipndt", savedDipendente.getUsername());
+        assertEquals("Dip", savedDipendente.getNome());
+        assertEquals("Endente", savedDipendente.getCognome());
+        assertEquals("endentedip@gmail.com", savedDipendente.getEmail());
     }
 }

@@ -3,6 +3,7 @@ package it.epicode.gestione_prenotazioni.azienda;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostazioneService {
@@ -31,4 +32,14 @@ public class PostazioneService {
                 .filter(p -> p.getEdificio().getId().equals(edificioId))
                 .toList();
     }
+
+    public Postazione savePostazione(Postazione postazione) {
+        return postazioneRepository.save(postazione);
+    }
+
+    public Postazione findById(Long id) {
+        Optional<Postazione> postazione = postazioneRepository.findById(id);
+        return postazione.orElse(null);
+    }
+
 }

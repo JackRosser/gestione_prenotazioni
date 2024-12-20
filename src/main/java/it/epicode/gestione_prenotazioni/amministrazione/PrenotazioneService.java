@@ -5,6 +5,7 @@ import it.epicode.gestione_prenotazioni.personale.Dipendente;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class PrenotazioneService {
@@ -28,4 +29,14 @@ public class PrenotazioneService {
         prenotazione.setDataPrenotazione(data);
         return prenotazioneRepository.save(prenotazione);
     }
+
+    public Prenotazione savePrenotazione(Prenotazione prenotazione) {
+        return prenotazioneRepository.save(prenotazione);
+    }
+
+    public Prenotazione findById(Long id) {
+        Optional<Prenotazione> prenotazione = prenotazioneRepository.findById(id);
+        return prenotazione.orElse(null);
+    }
+
 }
