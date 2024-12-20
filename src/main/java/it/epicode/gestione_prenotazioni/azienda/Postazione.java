@@ -13,15 +13,24 @@ import java.util.List;
 @Table(name = "postazione")
 public class Postazione {
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @ToString.Exclude
-    List<Dipendente> dipendenti = new ArrayList<>();
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     private String descrizione;
-    private TipoPostazione nomePostazione;
+
+    @Enumerated(EnumType.STRING)
+    private TipoPostazione tipoPostazione;
+
     private Integer numeroMassimoOccupanti;
 
+    private boolean prenotata = false;
+
+    @ManyToOne
+    @JoinColumn(name = "edificio_id", nullable = false)
+    private Edificio edificio;
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ToString.Exclude
+    private List<Dipendente> dipendenti = new ArrayList<>();
 }

@@ -9,17 +9,18 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "generic_name")
+@Table(name = "edificio")
 public class Edificio {
-
-    @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private List<Postazione> postazioni = new ArrayList<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+
     private String nome;
     private String indirizzo;
-    private String città;
+    private String citta;
+
+    @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<Postazione> postazioni = new ArrayList<>();
 }
