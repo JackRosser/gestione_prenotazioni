@@ -59,10 +59,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<annotationProcessorPaths>
-						<path>
+						<!-- <path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-						</path>
+						</path> -->
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
